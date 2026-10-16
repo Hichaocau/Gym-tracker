@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --color-bg: #0b0c0e;
+  --color-card: #15161a;
+  --color-card2: #1e1f24;
+  --color-line: #2a2b31;
+  --color-ink: #f4f4f5;
+  --color-mute: #a1a1aa;
+  --color-faint: #63646c;
+  --color-good: #4ade80;
+  --color-warn: #fbbf24;
+  --color-bad: #f87171;
+}
+
+/* per-profile accent, set on <html> by the app */
+@theme inline {
+  --color-accent: var(--accent, #2dd4a0);
+  --color-accent-soft: var(--accent-soft, rgb(45 212 160 / 0.14));
+  --color-accent-ink: var(--accent-ink, #9ff3d6);
+}
+
+html { background: var(--color-bg); color-scheme: dark; }
+html, body, #root { min-height: 100%; }
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+@layer base { button { cursor: pointer; } }
+input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.8); }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.tabular { font-variant-numeric: tabular-nums; }
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.anim-sheet { animation: sheet-up 0.22s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.anim-fade { animation: fade-in 0.18s ease-out; }
